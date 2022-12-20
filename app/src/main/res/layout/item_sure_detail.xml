@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginLeft="14dp"
+    android:layout_marginRight="14dp"
+    android:layout_marginTop="7dp"
+    android:background="@color/color_gri_2">
+
+
+    <TextView
+        android:id="@+id/item_sure_detail_orgin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيمِ "
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/black"  />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Okunuşu:"
+        android:textColor="@color/color_turuncu"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/item_detail_okunusu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bismillahir rahmanir rahim."
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/color_blue_1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anlamı:"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/color_turuncu"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/item_detail_anlami"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_blue_1"
+        android:text="Deneme deneme deneme nemed nefm efe ef e efe ef efe e  e e e  e ssfdsşilksdigdksgidlskgd isldf sdil kdilk sidlk  ki kisld lik"
+        android:textStyle="normal"
+        android:textSize="11sp"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>

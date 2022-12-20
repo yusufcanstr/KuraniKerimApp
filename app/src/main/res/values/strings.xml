@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">UX-1-Kuranı-Kerim-App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hadis_1">Dikkat edin, sizden biri kardeşinin verdiği hediyeyi reddetmesin.
+  Eğer bir şey de bulursa, ona mukabelede bulunsun.
+Nefsin yed-i kudretinde olana yemin ederim ki, bana bir (koyun) kolunun ucu hediye edilse kabul ederim.
+Ve eğer bir kol için davet edilsem ona icabet ederim.</string>
 </resources>

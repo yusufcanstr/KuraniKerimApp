@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://www.jitpack.io" }
+
     }
 }
 rootProject.name = "UX-1-Kuranı-Kerim-App"

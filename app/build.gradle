@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id "androidx.navigation.safeargs.kotlin"
     id 'kotlin-kapt'
+    id "dagger.hilt.android.plugin"
 }
 
 android {
@@ -11,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.yusufcansenturk.b_2_kotlin_countries"
-        minSdk 23
+        minSdk 24
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -47,13 +48,14 @@ android {
 dependencies {
 
     def navVersion = "2.5.3"
-    def lifeCycleExtensionVersion = '1.1.1'
     def retrofitVersion = '2.9.0'
     def supportVersion = '28.0.0'
     def glideVersion = '4.14.2'
     def rxJavaVersion = '2.1.1'
     def roomVersion = '2.4.3'
     def preferencesVersion = '1.2.0'
+    def hilt_version = "2.44"
+
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -63,7 +65,18 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+
+    // Dagger - Hilt
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
 
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.legacy:legacy-support-v4:1.0.0"

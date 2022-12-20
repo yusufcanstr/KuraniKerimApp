@@ -3,7 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/activity_main.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/favorite_icon.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/hadis_background.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/home_icon.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/ic_add_icon.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/ic_search_icon.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/item_name_background.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/item_sure_details_background.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/navigation_bar_bakground.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/drawable/search_background.xml" value="0.155" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/fragment_details.xml" value="0.25677083333333334" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/fragment_favorite.xml" value="0.25677083333333334" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/fragment_home.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/hadis_background.xml" value="0.25677083333333334" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/item_sure_detail.xml" value="0.4" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/layout/sure_name_item.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AB_Android_Developer/My Android Apps/UX-1-Kurani-Kerim-App/app/src/main/res/menu/nav_menu.xml" value="0.25677083333333334" />
       </map>
     </option>
   </component>
