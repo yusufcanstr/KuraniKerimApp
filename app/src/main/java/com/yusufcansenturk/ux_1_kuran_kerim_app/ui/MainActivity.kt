@@ -1,21 +1,18 @@
-package com.yusufcansenturk.ux_1_kuran_kerim_app
+package com.yusufcansenturk.ux_1_kuran_kerim_app.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import com.yusufcansenturk.ux_1_kuran_kerim_app.R
 import com.yusufcansenturk.ux_1_kuran_kerim_app.databinding.ActivityMainBinding
 import com.yusufcansenturk.ux_1_kuran_kerim_app.ui.addNote.AddNoteFragment
 import com.yusufcansenturk.ux_1_kuran_kerim_app.ui.favorite.FavoriteFragment
 import com.yusufcansenturk.ux_1_kuran_kerim_app.ui.home.HomeFragment
 import com.yusufcansenturk.ux_1_kuran_kerim_app.ui.settings.SettingsFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
