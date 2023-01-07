@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "221338418726",
+    "project_id": "ux-1-kuran--kerim-app",
+    "storage_bucket": "ux-1-kuran--kerim-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221338418726:android:1fc625e88fb35489e0b0e7",
+        "android_client_info": {
+          "package_name": "com.yusufcansenturk.b_2_kotlin_countries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221338418726-cuuptfmvgsvv8750dnu9nbeqn9vami7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlsazyyjmHzCZg7COckHS1Y8WRR4h5qnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221338418726-cuuptfmvgsvv8750dnu9nbeqn9vami7h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

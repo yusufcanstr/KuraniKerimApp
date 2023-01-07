@@ -18,7 +18,7 @@ class HomeViewModel @Inject constructor(
     private val repository: SureRepository
 ) : ViewModel(){
 
-    var sureList = MutableLiveData<List<Data>>() // ANA KOD
+    var sureList = MutableLiveData<List<Data>>()
     var errorMessage = MutableLiveData<Boolean>()
     var isLoading = MutableLiveData<Boolean>()
 
@@ -78,20 +78,13 @@ class HomeViewModel @Inject constructor(
                             data?.slug,
                             data?.verseCount
                         )
-
-                        //println(data?.name)
-
                     } as List<Data>
 
 
                     println("Success Resource")
                     isLoading.value = false
                     errorMessage.value = false
-                    //sureList.value?.plus(sureItems)
                     sureList.value = sureItems
-
-
-
                 }
 
                 is Resource.Error -> {
@@ -99,8 +92,6 @@ class HomeViewModel @Inject constructor(
                     isLoading.value = false
                     println("Error Resource")
                 }
-
-
                 else -> {}
             }
 

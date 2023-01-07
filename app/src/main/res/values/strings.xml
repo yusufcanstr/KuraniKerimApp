@@ -6,4 +6,9 @@
   Eğer bir şey de bulursa, ona mukabelede bulunsun.
 Nefsin yed-i kudretinde olana yemin ederim ki, bana bir (koyun) kolunun ucu hediye edilse kabul ederim.
 Ve eğer bir kol için davet edilsem ona icabet ederim.</string>
+
+    <string name="hesap_olustur_text"><u><b>Hesap Oluştur</b></u></string>
+    <string name="zaten_bir_hesabım_var_text"><u><b>Hesabıma giriş yap</b></u></string>
+
+
 </resources>

@@ -25,8 +25,7 @@ class HomeAdapter(val sureList: ArrayList<Data>): RecyclerView.Adapter<HomeAdapt
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
         holder.view.txt_item_sure_name.text = "${sureList[position].name} Suresi"
         holder.view.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment()
-            Navigation.findNavController(it).navigate(action)
+            println(sureList[position].name)
         }
     }
 

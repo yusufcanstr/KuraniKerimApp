@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yusufcansenturk.ux_1_kuran_kerim_app">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".ApplicationApp"
@@ -16,8 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UX1KuranıKerimApp"
         tools:targetApi="31">
+        
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.MainActivity" android:exported="false"/>
+
     </application>
 
 </manifest>
