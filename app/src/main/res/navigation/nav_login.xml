@@ -8,8 +8,11 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
         <action
             android:id="@+id/action_loginFragment_to_signupFragment"
             app:destination="@id/signupFragment" />
@@ -17,10 +20,17 @@
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.login.SignupFragment"
-        android:label="fragment_signup"
-        tools:layout="@layout/fragment_signup" >
+        android:label="SignupFragment" >
+        <action
+            android:id="@+id/action_signupFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
         <action
             android:id="@+id/action_signupFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

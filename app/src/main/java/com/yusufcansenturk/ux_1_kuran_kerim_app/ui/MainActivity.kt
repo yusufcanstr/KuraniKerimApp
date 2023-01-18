@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        //Navigation bar sabitleme işlemi kaldı ve diğer tasarımlar yapılacak!!!
 
         replaceFragment(HomeFragment())
         navigationBarFunction()
