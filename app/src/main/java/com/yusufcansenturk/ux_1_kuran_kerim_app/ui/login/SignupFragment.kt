@@ -51,10 +51,8 @@ class SignupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.hesapOlusturText.setOnClickListener {
-            // Signup Fragment -> Login Fragment
             val action = SignupFragmentDirections.actionSignupFragmentToLoginFragment()
             findNavController().navigate(action)
-
         }
 
         binding.kayitOlButton.setOnClickListener {
@@ -72,15 +70,24 @@ class SignupFragment : Fragment() {
         if (email.equals(null) || password.equals(null) || name.equals(null)) {
             Toast.makeText(requireContext(), "İsim , Email ve şifre giriniz !", Toast.LENGTH_SHORT).show()
         } else {
+            firestoreUsersAdd(name, email, "null")
             viewModel.signup(name, email, password)
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
             activity?.finish()
-
-
         }
     }
 
+    private fun firestoreUsersAdd(name :String, email :String, imageURL :String) {
+
+        val usersHashmap = HashMap<String, Any>()
+        usersHashmap.put("Name", name)
+        usersHashmap.put("Email", email)
+        usersHashmap.put("profileUrl", imageURL)
+
+        viewModel.saveFirestoreDatabase(usersHashmap, email)
+
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

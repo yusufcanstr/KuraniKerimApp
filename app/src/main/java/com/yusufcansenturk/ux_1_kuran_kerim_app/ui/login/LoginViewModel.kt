@@ -1,10 +1,15 @@
 package com.yusufcansenturk.ux_1_kuran_kerim_app.ui.login
 
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.yusufcansenturk.ux_1_kuran_kerim_app.repository.AuthRepository
 import com.yusufcansenturk.ux_1_kuran_kerim_app.util.AuthResource
+import com.yusufcansenturk.ux_1_kuran_kerim_app.util.Constants.COLLECTION_NAME_USERS
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,6 +20,8 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val repository: AuthRepository
 ) : ViewModel() {
+
+    private val db = FirebaseFirestore.getInstance()
 
     private val _loginFlow = MutableStateFlow<AuthResource<FirebaseUser>?>(null)
     val loginFlow: StateFlow<AuthResource<FirebaseUser>?> = _loginFlow
@@ -49,7 +56,14 @@ class LoginViewModel @Inject constructor(
         _signupFlow.value = null
     }
 
-
+    fun saveFirestoreDatabase(usersList: HashMap<String, Any>, UsersId: String) {
+        db.collection(COLLECTION_NAME_USERS).document(UsersId).set(usersList)
+            .addOnSuccessListener {
+                println("Kişi veritabanına eklendi")
+            }.addOnFailureListener {
+                println("hata mesajı ->" + it.localizedMessage)
+            }
+    }
 
 
 }

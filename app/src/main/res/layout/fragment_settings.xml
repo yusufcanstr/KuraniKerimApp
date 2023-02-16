@@ -8,18 +8,71 @@
     tools:context=".ui.settings.SettingsFragment">
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signOut"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="52dp"
-        android:background="@color/color_turuncu"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:text="Çıkış Yap"
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="146dp"
+                android:layout_height="146dp"
+                android:src="@drawable/ic_launcher_background"
+                app:civ_border_width="3dp"
+                android:layout_margin="20dp"
+                app:civ_border_color="@color/color_turuncu"/>
+
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                />
+            <TextView
+                android:id="@+id/userEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="normal"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="122dp"
+                android:background="@color/color_turuncu"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="170dp"
+                android:text="Çıkış Yap" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
