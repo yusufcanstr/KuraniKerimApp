@@ -1,13 +1,13 @@
 package com.yusufcansenturk.ux_1_kuran_kerim_app.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.yusufcansenturk.ux_1_kuran_kerim_app.R
 import com.yusufcansenturk.ux_1_kuran_kerim_app.model.SurelerList.Data
-import com.yusufcansenturk.ux_1_kuran_kerim_app.ui.home.HomeFragmentDirections
+import com.yusufcansenturk.ux_1_kuran_kerim_app.ui.details.DetailsActivity
 import kotlinx.android.synthetic.main.item_sure_name.view.*
 
 class HomeAdapter(val sureList: ArrayList<Data>): RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
@@ -24,16 +24,20 @@ class HomeAdapter(val sureList: ArrayList<Data>): RecyclerView.Adapter<HomeAdapt
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
         holder.view.txt_item_sure_name.text = "${sureList[position].name} Suresi"
-        holder.view.setOnClickListener {
-            println(sureList[position].name)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailsActivity::class.java)
+            intent.putExtra("sure_id", sureList[position].id.toString())
+            intent.putExtra("name", "${sureList[position].name} Suresi")
+            holder.itemView.context.startActivities(arrayOf(intent))
         }
+
     }
 
     override fun getItemCount(): Int {
         return sureList.size
     }
 
-    fun updateCountryList(newCountryList: List<Data>){
+    fun updateNameList(newCountryList: List<Data>){
         sureList.clear()
         sureList.addAll(newCountryList)
         notifyDataSetChanged()

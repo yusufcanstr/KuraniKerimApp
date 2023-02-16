@@ -8,9 +8,6 @@ import retrofit2.http.Path
 
 interface ServiceAPI {
 
-    // BU HATAYI ÇÖZ !!!!
-    //Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 10 path $.data
-
 
     @GET("surahs")
     suspend fun getSurelerList() : SureNameList
@@ -19,4 +16,5 @@ interface ServiceAPI {
     suspend fun getSurelerDetails(@Path("id") id: String) : SureDetail
 
 
+    // https://api.acikkuran.com/surah/114
 }

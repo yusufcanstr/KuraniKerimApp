@@ -20,17 +20,13 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 class HomeFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
-
     private var _binding: FragmentHomeBinding? = null
-
     private val binding get() = _binding!!
-
     private val homeAdapter = HomeAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
     }
 
@@ -47,9 +43,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //viewModel.loadSure()
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        viewModel.loadSure()
 
-        binding.recyclerViewList.layoutManager = LinearLayoutManager(context)
+        binding.recyclerViewList.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewList.adapter = homeAdapter
 
         observeLiveData()
@@ -58,53 +55,32 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeLiveData() {
-        viewModel.sureList.observe(viewLifecycleOwner, Observer { list ->
+        viewModel.sureList.observe(viewLifecycleOwner) { list ->
             list?.let {
                 binding.loadingBar.visibility = View.GONE
                 binding.recyclerViewList.visibility = View.VISIBLE
                 binding.errorImg.visibility = View.GONE
-                homeAdapter.updateCountryList(list)
+                homeAdapter.updateNameList(list)
             }
-        })
-/*
-        viewModel.sureList.observe(viewLifecycleOwner, Observer {  list ->
-            list?.let {
+        }
 
-                binding.searchEditText.addTextChangedListener(object : TextWatcher {
-                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                        //// Bu metot, veri değiştirilmeden önce çağrılır.
-                    }
-
-                    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                        // Bu metot, veri değişirken çağrılır.
-                        println("Veri değişirken: $p0")
-                        //viewModel.searchSureList(p0.toString())
-                    }
-
-                    override fun afterTextChanged(p0: Editable?) {
-                        // Bu metot, veri değiştiğinde çağrılır.
-                    }
-
-                })
-            }
-        })
-
- */
-
-        viewModel.errorMessage.observe(viewLifecycleOwner, Observer { error ->
+        viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
             error?.let {
                 binding.errorImg.visibility = View.VISIBLE
                 binding.loadingBar.visibility = View.GONE
                 binding.recyclerViewList.visibility = View.GONE
-                println("hatageliyor")
             }
-        })
+        }
 
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer { loading ->
+        viewModel.isLoading.observe(viewLifecycleOwner) { loading ->
             loading?.let {
-                binding.recyclerViewList.visibility = View.VISIBLE
+                if (it) {
+                    binding.errorImg.visibility = View.GONE
+                    binding.loadingBar.visibility = View.VISIBLE
+                    binding.recyclerViewList.visibility = View.GONE
+                }
             }
-        })
+        }
 
 
 

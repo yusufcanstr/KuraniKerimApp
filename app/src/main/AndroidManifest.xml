@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UX1KuranıKerimApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.details.DetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
@@ -26,11 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.MainActivity"/>
-
+        <activity android:name=".ui.MainActivity" />
     </application>
-
-
 
 </manifest>

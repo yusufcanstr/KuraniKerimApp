@@ -1,6 +1,5 @@
 package com.yusufcansenturk.ux_1_kuran_kerim_app.ui.home
 
-import android.os.Handler
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,9 +17,9 @@ class HomeViewModel @Inject constructor(
     private val repository: SureRepository
 ) : ViewModel(){
 
-    var sureList = MutableLiveData<List<Data>>()
-    var errorMessage = MutableLiveData<Boolean>()
-    var isLoading = MutableLiveData<Boolean>()
+    val sureList = MutableLiveData<List<Data>>()
+    val errorMessage = MutableLiveData<Boolean>()
+    val isLoading = MutableLiveData<Boolean>()
 
     private var initialSureList = listOf<Data>()
     private var isSearchStarting = true
@@ -80,11 +79,16 @@ class HomeViewModel @Inject constructor(
                         )
                     } as List<Data>
 
-
                     println("Success Resource")
                     isLoading.value = false
                     errorMessage.value = false
                     sureList.value = sureItems
+                }
+
+                is Resource.Loading -> {
+                    errorMessage.value = false
+                    isLoading.value = false
+                    println("Loading Resource")
                 }
 
                 is Resource.Error -> {
@@ -92,13 +96,14 @@ class HomeViewModel @Inject constructor(
                     isLoading.value = false
                     println("Error Resource")
                 }
+
+
                 else -> {}
             }
 
         }
 
     }
-
 
 
 }

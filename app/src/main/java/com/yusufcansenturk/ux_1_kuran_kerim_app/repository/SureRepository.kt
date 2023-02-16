@@ -29,8 +29,8 @@ class SureRepository @Inject constructor(
         val response = try {
             api.getSurelerDetails(id)
         }catch (e:Exception) {
-            println("SureRepository Error2")
-            return  Resource.Error("Error!")
+            println(e.toString())
+            return  Resource.Error("Error")
         }
 
         return Resource.Success(response)
