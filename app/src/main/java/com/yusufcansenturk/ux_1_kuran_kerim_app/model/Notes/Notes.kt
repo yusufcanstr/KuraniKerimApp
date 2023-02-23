@@ -1,6 +1,6 @@
 package com.yusufcansenturk.ux_1_kuran_kerim_app.model.Notes
 
-import com.google.firebase.firestore.FieldValue
+import com.google.firebase.Timestamp
 
 data class Notes(
     val title : String?,

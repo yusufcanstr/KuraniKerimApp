@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -44,7 +45,8 @@ class AddNoteViewModel @Inject constructor(
             .whereEqualTo("email", auth.currentUser!!.email.toString())
             .addSnapshotListener { value, error ->
                 if (error != null) {
-                    Toast.makeText(context, error.localizedMessage, Toast.LENGTH_LONG).show()
+                    println(error.localizedMessage)
+                    Toast.makeText(context, "İnternet bağlantınızı kontrol ediniz !", Toast.LENGTH_SHORT).show()
                     error_LD.value = true
                     loading_LD.value = false
                     noteList_LD.value = null

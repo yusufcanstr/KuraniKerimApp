@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.yusufcansenturk.ux_1_kuran_kerim_app.R
 import com.yusufcansenturk.ux_1_kuran_kerim_app.databinding.ActivityMainBinding
