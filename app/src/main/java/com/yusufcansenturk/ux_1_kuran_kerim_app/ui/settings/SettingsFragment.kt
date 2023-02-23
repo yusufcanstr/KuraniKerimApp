@@ -170,7 +170,7 @@ class SettingsFragment : Fragment() {
     }
 
     fun profileImageDownload(selectedBitmap: Bitmap) {
-        val smallBitmap = makeSmallerBitmap(selectedBitmap, 100)
+        val smallBitmap = makeSmallerBitmap(selectedBitmap, 200)
         settingsViewModel.setProfileImage(smallBitmap)
 
 

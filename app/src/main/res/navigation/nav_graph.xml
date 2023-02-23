@@ -30,7 +30,11 @@
         android:id="@+id/addNoteFragment"
         android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.addNote.AddNoteFragment"
         android:label="fragment_add_note"
-        tools:layout="@layout/fragment_add_note" />
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFragment_to_addScreenFragment2"
+            app:destination="@id/addScreenFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.favorite.FavoriteFragment"
@@ -54,4 +58,13 @@
         android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.login.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/addScreenFragment2"
+        android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.addNote.AddScreenFragment"
+        android:label="fragment_add_screen"
+        tools:layout="@layout/fragment_add_screen" >
+        <action
+            android:id="@+id/action_addScreenFragment2_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
 </navigation>

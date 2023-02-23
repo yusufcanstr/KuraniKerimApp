@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_notes"
+    app:startDestination="@id/addScreenFragment">
+
+    <fragment
+        android:id="@+id/addScreenFragment"
+        android:name="com.yusufcansenturk.ux_1_kuran_kerim_app.ui.addNote.AddScreenFragment"
+        android:label="fragment_add_screen"
+        tools:layout="@layout/fragment_add_screen" />
+</navigation>

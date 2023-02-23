@@ -4,5 +4,6 @@ object Constants {
 
     val BASE_URL = "https://api.acikkuran.com/"
     val COLLECTION_NAME_USERS = "USERS"
+    val COLLECTION_NAME_NOTE = "NOTES"
 
 }
