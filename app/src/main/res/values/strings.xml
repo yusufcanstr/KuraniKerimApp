@@ -10,5 +10,12 @@ Ve eğer bir kol için davet edilsem ona icabet ederim.</string>
     <string name="hesap_olustur_text"><u><b>Hesap Oluştur</b></u></string>
     <string name="zaten_bir_hesabım_var_text"><u><b>Hesabıma giriş yap</b></u></string>
 
+    <string name="not_eklendi">Not başarılı bir şekilde eklendi.</string>
+    <string name="internet_kontrolu">İnternet bağlantınızı kontrol ediniz !</string>
+    <string name="not_yok">Notlar yok !</string>
+    <string name="not_soru">Notu silmek istediğinizden emin misiniz ?</string>
+
+    <string name="guncelle">Güncelle</string>
+
 
 </resources>

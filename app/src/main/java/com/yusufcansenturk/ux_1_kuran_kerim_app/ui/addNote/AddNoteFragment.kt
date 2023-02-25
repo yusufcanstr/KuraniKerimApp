@@ -1,6 +1,9 @@
 package com.yusufcansenturk.ux_1_kuran_kerim_app.ui.addNote
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.view.GestureDetector
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,8 +37,6 @@ class AddNoteFragment : Fragment() {
         _binding = FragmentAddNoteBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        navigationBarVisibility(view)
-
         return view
     }
 
@@ -53,16 +54,63 @@ class AddNoteFragment : Fragment() {
                 ?.addToBackStack(null)
                 ?.commit()
 
+            targetFragment.arguments = Bundle().apply {
+                putInt("myInt", 0)
+            }
+
         }
 
         observeLiveData()
 
+
+    }
+
+    private fun setupRecyclerViewTouchListener(adapter: NotesAdapter) {
+        val recyclerView = binding.notesLists
+
+        recyclerView.addOnItemTouchListener(MyLongClickListener(
+            onItemClick = { position ->
+                // Öğeye tıklandığında yapılacak işlemler
+                val item = adapter.getItem(position)
+                val docId = item.id
+
+                val targetFragment = AddScreenFragment()
+                fragmentManager?.beginTransaction()
+                    ?.replace(R.id.frame_Layout, targetFragment)
+                    ?.addToBackStack(null)
+                    ?.commit()
+
+                targetFragment.arguments = Bundle().apply {
+                    putInt("myInt", 1)
+                    putString("id", docId)
+                }
+
+            },
+            onLongItemClick = { position ->
+                // Öğeye uzun tıklandığında yapılacak işlemler
+                val builder = AlertDialog.Builder(requireContext())
+                builder.setMessage(R.string.not_soru)
+                builder.setPositiveButton("Evet") { dialog, which ->
+                    val item = adapter.getItem(position)
+                    val docId = item.id
+                    viewmodel.deleteData(docId)
+                }
+
+                builder.setNegativeButton("Hayır") { dialog, which ->
+
+                }
+                builder.show()
+
+            },
+            recyclerView = recyclerView
+        ))
     }
 
     private fun observeLiveData() {
         viewmodel.noteList_LD.observe(viewLifecycleOwner) { notesLists ->
             notesLists?.let {
                 binding.notesLists.adapter = NotesAdapter(it)
+                setupRecyclerViewTouchListener(NotesAdapter(it))
                 binding.errorImage.visibility = View.GONE
                 binding.progressBar2.visibility = View.GONE
             }
@@ -82,11 +130,6 @@ class AddNoteFragment : Fragment() {
             }
         }
 
-    }
-
-    private fun navigationBarVisibility(view: View) {
-        val chipNavigationBar = view.findViewById<ChipNavigationBar>(R.id.navigation_bar)
-        chipNavigationBar?.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
