@@ -51,6 +51,7 @@ class HomeFragment : Fragment() {
 
         observeLiveData()
 
+        editTextSearch()
 
     }
 
@@ -84,6 +85,24 @@ class HomeFragment : Fragment() {
 
 
 
+    }
+
+    private fun editTextSearch() {
+        binding.searchEditText.addTextChangedListener(object :TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                println("before ->" + p0.toString())
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                println("onText ->" +p0.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val newValue = s.toString()
+                viewModel.searchSureList(newValue)
+            }
+
+        })
     }
 
 

@@ -1,12 +1,17 @@
 package com.yusufcansenturk.ux_1_kuran_kerim_app.ui.login
 
-import android.widget.Toast
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+
+import android.app.Application
+import androidx.lifecycle.*
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
+import com.yusufcansenturk.ux_1_kuran_kerim_app.ApplicationApp
+import com.yusufcansenturk.ux_1_kuran_kerim_app.R
 import com.yusufcansenturk.ux_1_kuran_kerim_app.repository.AuthRepository
 import com.yusufcansenturk.ux_1_kuran_kerim_app.util.AuthResource
 import com.yusufcansenturk.ux_1_kuran_kerim_app.util.Constants.COLLECTION_NAME_USERS
@@ -18,7 +23,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repository: AuthRepository
+    private val repository: AuthRepository,
 ) : ViewModel() {
 
     private val db = FirebaseFirestore.getInstance()
@@ -29,8 +34,6 @@ class LoginViewModel @Inject constructor(
     private val _signupFlow = MutableStateFlow<AuthResource<FirebaseUser>?>(null)
     val signupFlow: StateFlow<AuthResource<FirebaseUser>?> = _loginFlow
 
-    val currentUser : FirebaseUser?
-        get() = repository.currentUser
 
     init {
         if (repository.currentUser != null) {

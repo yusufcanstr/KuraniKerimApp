@@ -32,12 +32,12 @@ class HomeViewModel @Inject constructor(
 
     fun searchSureList(query: String) {
         val listToSearch = if (isSearchStarting) {
-            sureList.value
-        }else {
+            sureList.value ?: return
+        } else {
             initialSureList
-        }
+        } ?: return
 
-        viewModelScope.launch(Dispatchers.Default) {
+        viewModelScope.launch(Dispatchers.Main) {
             if (query.isEmpty()){
                 sureList.value = initialSureList
                 isSearchStarting = true

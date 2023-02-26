@@ -17,6 +17,7 @@ class DetailsAdapter(private val verseList: List<Verse>) : RecyclerView.Adapter<
                 itemSureDetailOrgin.text = verse.verse
                 itemDetailOkunusu.text = verse.transcription
                 itemDetailAnlami.text = verse.translation!!.text
+                ayetNumber.text = "${verse.verseNumber.toString()}. Ayet"
             }
         }
     }
