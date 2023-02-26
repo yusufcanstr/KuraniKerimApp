@@ -53,6 +53,10 @@ class HomeFragment : Fragment() {
 
         editTextSearch()
 
+        val randomHadis = viewModel.getRandomHadis()
+        binding.txtHadis.text = randomHadis.hadis
+        binding.txtHadisUser.text = randomHadis.name
+
     }
 
     private fun observeLiveData() {
