@@ -1,11 +1,22 @@
 package com.yusufcansenturk.ux_1_kuran_kerim_app.ui.home
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.ktx.Firebase
 import com.yusufcansenturk.ux_1_kuran_kerim_app.model.SurelerList.Data
 import com.yusufcansenturk.ux_1_kuran_kerim_app.model.hadis.Hadis
 import com.yusufcansenturk.ux_1_kuran_kerim_app.repository.SureRepository
+import com.yusufcansenturk.ux_1_kuran_kerim_app.util.Constants
+import com.yusufcansenturk.ux_1_kuran_kerim_app.util.Constants.COLLECTION_FAVORITE
 import com.yusufcansenturk.ux_1_kuran_kerim_app.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +34,10 @@ class HomeViewModel @Inject constructor(
     val isLoading = MutableLiveData<Boolean>()
 
     private val hadisler: MutableList<Hadis> = mutableListOf()
+
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private val email = auth.currentUser!!.email
 
     private var initialSureList = listOf<Data>()
     private var isSearchStarting = true
@@ -62,6 +77,28 @@ class HomeViewModel @Inject constructor(
         }
 
     }
+
+    fun addFavorite(hashMap: HashMap<String, Any>, sureId: String) {
+        val userFavoritesCollection = db.collection(COLLECTION_FAVORITE).document(email.toString()).collection("verses")
+        userFavoritesCollection.document(sureId)
+            .set(hashMap)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+    }
+
+    fun removeFavorite(sureId: String) {
+        val itemsRef = db.collection(COLLECTION_FAVORITE).document(email.toString()).collection("verses")
+        val query = itemsRef.document(sureId).delete()
+            query
+                .addOnSuccessListener {
+
+                }
+                .addOnFailureListener {
+
+                }
+    }
+
+
 
 
     fun loadSure() {
